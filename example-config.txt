@@ -295,7 +295,11 @@ interface Port-channel1
  !
 !
 interface Vlan1
- no ip address
+ load-interval 30
+ mac access-group MAC_ACL in
+ mac access-group MAC_ACL out
+ cdp enable
+ service-policy input BG_MARKING
 !
 interface Vlan2
  no ip address
@@ -382,6 +386,19 @@ router bgp 65000
 !
 vlan 10,20,30,40,50,60,70,80,90,100,200
 !
+mac access-list extended MAC_ACL
+ permit host 294a.f5e9.d791 host 295b.7593.9e82
+ permit host 266e.8cb3.0f96 host 2220.7b06.80c5
+ permit host 253f.d327.fcc8 host 1dfd.9ded.434f
+ permit host 095d.e795.7e62 host 2c75.083c.5576
+ deny   host 0548.9d25.b437 host 1950.2a82.3c80
+ deny   host 0bd7.4390.0710 host 097c.f437.150c
+ deny   host 1e33.f97d.3c93 host 0561.b238.f6ef
+ deny   host 1c77.0603.69dd host 035f.18ad.31e1
+ deny   host 34e8.480e.c057 host 0118.7e25.6b42
+ deny   host 2ba7.2470.3c1b host 0c82.31d7.385f
+ deny   host 3b1a.a409.ea50 host 1ece.e8f9.c08d
+ permit host 0207.2bd2.7124 host 229b.324e.ad5d
 !
 access-list 103 permit udp host 200.1.1.1 any eq isakmp
 access-list 103 permit udp host 200.1.1.1 eq isakmp any

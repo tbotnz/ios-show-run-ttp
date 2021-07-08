@@ -13,6 +13,9 @@ interface {{ interface }}
 {{ duplex | set(None) }}
 {{ vlan | set(None) }}
 {{ ip_directed_broadcast | set(None) }}
+{{ input_mac_acl | set(None) }}
+{{ output_mac_acl | set(None) }}
+{{ input_policy | set(None) }}
  switchport mode {{ mode }}
  switchport trunk allowed vlan {{ vlan | _start_ | unrange(rangechar='-', joinchar=',' ) | split(',') }}
  switchport access vlan {{ vlan | _start_ }}
@@ -26,6 +29,9 @@ interface {{ interface }}
  shutdown {{ disabled | set(True) }}
  negotiation {{ negation }}
  ip directed-broadcast {{ ip_directed_broadcast | set(True) }}
+ mac access-group {{ input_mac_acl }} in
+ mac access-group {{ output_mac_acl }} out
+ service-policy input {{ input_policy }}
  <group name="service_instance">
  {{ pop | set(None) }}
  {{ symmetric | set(False) }}
@@ -82,14 +88,6 @@ hostname {{ hostname | re(".+") }}
 {{ weight | set(None) }}
 ip route {{src | _start_}} {{mask}} {{dest}} {{weight}}
 ip route {{src | _start_}} {{mask}} {{dest}}
-</group>
-
-<group name="security.access_lists">
-access-list {{ id }} {{permit_deny}} {{ ip }} {{ wildcard}}
-</group>
-
-<group name="security.access_lists">
-access-list {{ id }} {{permit_deny}} {{ ip }} {{ wildcard}}
 </group>
 
 <group name="global.control_plane">
@@ -276,6 +274,11 @@ access-list {{id | _start_}} {{type}} {{src_proto }} host {{src}} eq {{dest_prot
 access-list {{id | _start_}} {{type}} {{src_proto }} {{src}} {{dest}}
 access-list {{id | _start_}} {{type}} ip {{src}} {{src_wildcard}} {{dest}} {{dest_wildcard}}
 </group>
+
+<group name="security.mac_access_lists">
+ {{type}} {{ data| re(".+") }}
+</group>
+
 
 <group name="security.aaa">
 aaa new-model
