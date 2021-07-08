@@ -11,8 +11,11 @@ interface {{ interface }}
 {{ negotiation | set(None) }}
 {{ speed | set(None) }}
 {{ duplex | set(None) }}
+{{ vlan | set(None) }}
 {{ ip_directed_broadcast | set(None) }}
  switchport mode {{ mode }}
+ switchport trunk allowed vlan {{ vlan | _start_ | unrange(rangechar='-', joinchar=',' ) | split(',') }}
+ switchport access vlan {{ vlan | _start_ }}
  speed {{speed}}
  duplex {{duplex}}
  description {{ description | re(".+") }}
@@ -35,7 +38,7 @@ interface {{ interface }}
   service-policy input {{ input_policy }}
   service-policy output {{ output_policy }}
   bridge-domain {{ bdomain }}
- <group>
+ </group>
 </group>
 
 <group name="global.http_server">
@@ -174,7 +177,7 @@ router ospf {{ process | re(".+") | record(process) }}
  router-id {{ router_id }}
  <group name="area">
  area {{ area }} {{ area_type }}
- <group>
+ </group>
  {{ passive_interface_enabled | set(False) }}
  passive-interface default {{ passive_interface_enabled | set(True) }}
 <group name="no_passive_interface">
@@ -219,20 +222,23 @@ router eigrp {{as_number}}
  no auto-summary{{ auto_summary_enabled | set(False) }}
 </group>
 
-<group name="routing.bgp_cfg">
+<group name="routing.bgp">
 router bgp {{ asn | record(asn) }}
  neighbor {{ neighbor_ip }} remote-as {{ remote_as }}
+ neighbor {{ neighbor_ip }} update-source {{ update_source }}
+  {{ auto_summary_enabled | set(True) }}
+  no auto-summary{{ auto_summary_enabled | set(False) }}
   <group name="vrfs.{{ vrf_name }}" record="vrf_name">
   vrf {{ vrf_name }}
-    <group name="/bgp_peers*" chain="chain_1">
-    neighbor {{ peer_ip }}
-      {{ local_asn | set(asn) }}
-      {{ hostname | set(hostname) }}
-      remote-as {{ peer_asn }}
-      description {{ description }}
-      address-family {{ afi }} unicast
-        route-map {{ rpl_in }} in
-        route-map {{ rpl_out }} out
+   <group name="/bgp_peers*" chain="chain_1">
+   neighbor {{ peer_ip }}
+     {{ local_asn | set(asn) }}
+     {{ hostname | set(hostname) }}
+     remote-as {{ peer_asn }}
+     description {{ description }}
+     address-family {{ afi }} unicast
+      route-map {{ rpl_in }} in
+      route-map {{ rpl_out }} out
 	</group>
   </group>
 </group>
@@ -268,4 +274,22 @@ tacacs-server host {{host}} key 7 {{key}}
 
 <group name="security.local_user">
 username {{username}} privilege {{priv}} secret {{secret_type}} {{secret}}
+</group>
+
+<group name="global.policy">
+policy-map {{ policy_map | re(".+") | record(vrf) }}
+<group name="class.{{ class_name }}">
+ class {{ class_name }}
+  bandwidth remaining percent {{ bandwith_remaining_percent | _start_ }}
+  set dscp {{ set_dscp | _start_ }}
+  set cos {{ set_cos | _start_ }}
+  set qos-group {{ set_qos_group | _start_ }}
+</group>
+</group>
+
+<group name="global.policy.class">
+class-map match-{{match_type}} {{class_name}}
+ <group name="match">
+ match {{type}} {{ value | unrange(rangechar='-', joinchar='  ' ) | split('  ') }}
+</group>
 </group>

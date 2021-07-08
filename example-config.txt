@@ -1,0 +1,393 @@
+Building configuration...
+
+Current configuration : 2058 bytes
+!
+version 12.4
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname meowcat
+!
+boot-start-marker
+boot-end-marker
+!
+!
+no aaa new-model
+memory-size iomem 5
+no ip icmp rate-limit unreachable
+ip cef
+!
+!
+!
+!
+no ip domain lookup
+ip domain name test
+ip auth-proxy max-nodata-conns 3
+ip admission max-nodata-conns 3
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+file prompt quiet
+username admin privilege 15 secret 5 $1$M1ce$SKeVGg2lUCPrsLkJMIdWf.
+!
+!
+ip tcp synwait-time 5
+ip ssh version 2
+ip scp server enable
+!
+!
+!
+!
+class-map match-all af41
+ match dscp af41 
+class-map match-all ef
+ match dscp ef 
+class-map match-all af32
+ match dscp af32 
+class-map match-all af22
+ match dscp af22 
+class-map match-all be
+ match dscp default 
+class-map match-all af11
+ match dscp af11 
+class-map match-any CM-GROUP4
+ match qos-group 4
+class-map match-any CM-GROUP5
+ match qos-group 5
+class-map match-all cos5
+ match cos  5 
+class-map match-any CM-GROUP6
+ match qos-group 6
+ match dscp cs6  cs7 
+class-map match-all cos4
+ match cos  4 
+class-map match-all cos3
+ match cos  3 
+class-map match-all cos2
+ match cos  2 
+class-map match-any CM-GROUP1
+ match qos-group 1
+class-map match-all cos1
+ match cos  1 
+class-map match-any CM-GROUP2
+ match qos-group 2
+class-map match-all cos0
+ match cos  0 
+class-map match-any CM-GROUP3
+ match qos-group 3
+class-map match-all qos5
+ match qos-group 5
+class-map match-any qos4
+ match qos-group 4
+ match dscp cs4 
+class-map match-all qos1
+ match qos-group 1
+class-map match-all qos3
+ match qos-group 3
+class-map match-all qos2
+ match qos-group 2
+!
+policy-map NPM-INGRESS-NNI
+ class cos5
+  set qos-group 5
+ class cos3
+  set qos-group 3
+ class cos1
+  set qos-group 1
+ class cos4
+  set qos-group 4
+ class cos2
+  set qos-group 2
+ class cos0
+  set qos-group 0
+policy-map BG_MARKING
+ class af41
+  set dscp default
+  set qos-group 0
+  set cos 0
+policy-map PM-EGRESS-NNI
+ class CM-GROUP6
+  bandwidth remaining percent 5 
+ class CM-GROUP5
+  priority percent 25
+ class CM-GROUP4
+  bandwidth remaining percent 5 
+ class CM-GROUP3
+  bandwidth remaining percent 10 
+ class CM-GROUP2
+  bandwidth remaining percent 40 
+ class CM-GROUP1
+  bandwidth remaining percent 10 
+ class class-default
+  bandwidth remaining percent 5 
+policy-map NMS_MARKING
+ class class-default
+  set qos-group 4
+  set dscp cs4
+  set cos 4
+policy-map TDM_MARKING
+ class class-default
+  set qos-group 2
+  set cos 2
+policy-map PM-INGRESS-NETCONTROL-COS
+ class class-default
+  set qos-group 6
+  set cos 6
+policy-map NPM-EGRESS-NNI
+ class qos5
+  set dscp ef
+  set cos 5
+  bandwidth remaining percent 30 
+ class qos3
+  bandwidth remaining percent 30 
+  set dscp af32
+  set cos 3
+ class qos2
+  priority level 1
+  set cos 2
+ class qos1
+  bandwidth remaining percent 30 
+  set dscp af11
+  set cos 1
+ class qos4
+  priority level 2
+  set dscp cs4
+  set cos 4
+ class class-default
+  set dscp default
+  set cos 0
+  queue-limit 10 us
+policy-map PM-INGRESS-NNI-TDM
+ class class-default
+  set qos-group 5
+  set cos 5
+policy-map SERVICES_MARKING
+ class af41
+  set qos-group 5
+  set dscp ef
+  set cos 4
+ class af22
+  set qos-group 3
+  set dscp af32
+  set cos 3
+ class be
+  set dscp af11
+  set qos-group 1
+  set cos 1
+!
+!
+!
+interface Loopback1
+ no ip address
+!
+interface FastEthernet0/0
+ ip address 10.0.2.33 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/1
+ description cat
+ ip address 192.168.1.1 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface FastEthernet1/0
+ ip address 192.168.3.1 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface FastEthernet2/0
+ no ip address
+ duplex auto
+ speed auto
+!
+interface FastEthernet3/0
+!
+interface FastEthernet3/1
+!
+interface FastEthernet3/2
+!
+interface FastEthernet3/3
+!
+interface FastEthernet3/4
+!
+interface FastEthernet3/5
+!
+interface FastEthernet3/6
+!
+interface FastEthernet3/7
+!
+interface FastEthernet3/8
+!
+interface FastEthernet3/9
+!
+interface FastEthernet3/10
+!
+interface FastEthernet3/11
+!
+interface FastEthernet3/12
+!
+interface FastEthernet3/13
+!
+interface FastEthernet3/14
+!
+interface FastEthernet3/15
+!
+interface Port-channel1
+ description <description/Remark>
+ mtu 9000
+ no ip address
+ logging event link-status
+ load-interval 30
+ carrier-delay msec 0
+ negotiation auto
+ service instance 100 ethernet
+  encapsulation dot1q 100
+  rewrite ingress tag pop 1 symmetric
+  service-policy input PM-INGRESS-NETCONTROL-COS
+  bridge-domain 100
+ !
+ service instance 151 ethernet
+  description TDM-E1_WT
+  encapsulation dot1q 151
+  rewrite ingress tag pop 1 symmetric
+  service-policy input PM-INGRESS-NNI-TDM
+  bridge-domain 151
+ !
+ service instance 152 ethernet
+  description TDM-E1_PT
+  encapsulation dot1q 152
+  rewrite ingress tag pop 1 symmetric
+  service-policy input PM-INGRESS-NNI-TDM
+  bridge-domain 152
+ !
+!
+interface Vlan1
+ no ip address
+!
+interface Vlan2
+ no ip address
+!
+interface Vlan3
+ no ip address
+!
+interface Vlan5
+ no ip address
+!
+interface Vlan99
+ no ip address
+!
+ip forward-protocol nd
+!
+!
+no ip http server
+no ip http secure-server
+!
+snmp-server community cat RO
+snmp-server community test RO
+no cdp log mismatch duplex
+!
+!
+!
+control-plane
+!
+router ospf 7306
+ router-id 10.249.16.152
+ auto-cost reference-bandwidth 10000
+ area 0.0.0.60 nssa
+ redistribute static metric-type 1 subnets route-map LOOPBACK
+ passive-interface default
+ no passive-interface Loopback0
+ network 10.249.16.152 0.0.0.0 area 0.0.0.60
+ network 10.249.24.136 0.0.0.7 area 0.0.0.60
+ network 10.249.29.24 0.0.0.7 area 0.0.0.60
+ network 10.251.250.94 0.0.0.1 area 0.0.0.60
+ network 10.251.250.180 0.0.0.1 area 0.0.0.60
+ network 10.251.253.88 0.0.0.1 area 0.0.0.60
+ network 10.251.253.90 0.0.0.1 area 0.0.0.60
+ network 10.251.253.168 0.0.0.7 area 0.0.0.60
+!
+router rip
+ version 2
+ redistribute static
+ !
+ address-family ipv4 vrf MHC
+  redistribute connected
+  redistribute static
+  network 10.0.0.0
+  network 172.20.0.0
+  no auto-summary
+  version 2
+ exit-address-family
+ !
+ address-family ipv4 vrf HERPLYFE
+  redistribute connected
+  redistribute static
+  network 10.0.0.0
+  no auto-summary
+  version 2
+ exit-address-family
+!
+router bgp 65000
+ no synchronization
+ bgp log-neighbor-changes
+ neighbor 10.0.0.4 remote-as 65000
+ neighbor 10.0.0.4 update-source Loopback0
+ no auto-summary
+ !
+ address-family vpnv4
+  neighbor 10.0.0.4 activate
+  neighbor 10.0.0.4 send-community extended
+ exit-address-family
+ !
+ address-family ipv4 vrf Customer_B
+  no synchronization
+ exit-address-family
+ !
+ address-family ipv4 vrf Customer_A
+  no synchronization
+ exit-address-family
+!
+vlan 10,20,30,40,50,60,70,80,90,100,200
+!
+!
+access-list 103 permit udp host 200.1.1.1 any eq isakmp
+access-list 103 permit udp host 200.1.1.1 eq isakmp any
+access-list 103 permit esp host 200.1.1.1 any
+access-list 103 permit icmp any any
+access-list 103 deny ip any any
+access-list 105 permit ip 10.1.1.0 0.0.0.255 192.168.0.0 0.0.255.255
+!
+!
+line con 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line aux 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line vty 0 4
+ privilege level 15
+ login local
+ transport input ssh
+line vty 5 15
+ privilege level 15
+ login local
+ transport input ssh
+!
+!
+end
