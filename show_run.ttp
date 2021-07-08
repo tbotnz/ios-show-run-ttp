@@ -130,6 +130,14 @@ snmp-server community {{community | _start_ }} {{mode}}
 snmp-server host {{trap_host | _start_ }} {{community}}
 </group>
 
+<group name="management.logging">
+logging facility {{facility}}
+logging source-interface {{source_interface}}
+<group name="hosts">
+logging host {{host}}
+</group>
+</group>
+
 <group name="global.vlan">
 vlan {{ id | _start_ }} name {{ name }}
 vlan {{ id | _start_ | unrange(rangechar='-', joinchar=',' ) | split(',') }}
