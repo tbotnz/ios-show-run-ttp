@@ -11,4 +11,4 @@ result = parser.result()
 print(json.dumps(result, sort_keys=True, indent=4))
 
 with open('example-result.json', 'w') as outfile:
-    json.dump(result, outfile, sort_keys=True, indent=4)
+    json.dump(result, outfile, indent=4)
