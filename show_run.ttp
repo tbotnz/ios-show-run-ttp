@@ -128,7 +128,13 @@ enable password {{ password }}
 <group name="management.snmp">
 snmp-server community {{community | _start_ }} {{mode}}
 snmp-server host {{trap_host | _start_ }} {{community}}
+snmp-server trap-source {{trap_source}}
+<group name="enabled_traps">
+snmp-server enable traps {{ traps | re(".+") | split('  ') }}
 </group>
+snmp-server host {{trap_host | _start_ }} version 2c {{community}}
+</group>
+
 
 <group name="management.logging">
 logging facility {{facility}}
