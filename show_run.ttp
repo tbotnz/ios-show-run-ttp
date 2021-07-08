@@ -245,17 +245,17 @@ router bgp {{ asn | record(asn) }}
   {{ auto_summary_enabled | set(True) }}
   no auto-summary{{ auto_summary_enabled | set(False) }}
   <group name="vrfs.{{ vrf_name }}" record="vrf_name">
-  vrf {{ vrf_name }}
-   <group name="/bgp_peers*" chain="chain_1">
-   neighbor {{ peer_ip }}
-     {{ local_asn | set(asn) }}
-     {{ hostname | set(hostname) }}
-     remote-as {{ peer_asn }}
-     description {{ description }}
-     address-family {{ afi }} unicast
-      route-map {{ rpl_in }} in
-      route-map {{ rpl_out }} out
-	</group>
+ vrf {{ vrf_name }}
+  <group name="peers" chain="chain_1">
+  neighbor {{ peer_ip }}
+   {{ local_asn | set(asn) }}
+   {{ hostname | set(hostname) }}
+   remote-as {{ remote_as }}
+   description {{ description }}
+   address-family {{ afi }} unicast
+    route-map {{ rpl_in }} in
+    route-map {{ rpl_out }} out
+	 </group>
   </group>
 </group>
 

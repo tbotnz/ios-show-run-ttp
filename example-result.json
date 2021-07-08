@@ -1232,13 +1232,45 @@
                         }
                     ]
                 },
-                "bgp": {
-                    "neighbor_ip": "10.0.0.4",
-                    "update_source": "Loopback0",
-                    "remote_as": "65000",
-                    "asn": "65000",
-                    "auto_summary_enabled": true
-                }
+                "bgp": [
+                    {
+                        "neighbor_ip": "10.0.0.4",
+                        "update_source": "Loopback0",
+                        "remote_as": "65000",
+                        "asn": "65000",
+                        "auto_summary_enabled": true
+                    },
+                    {
+                        "asn": "65100",
+                        "auto_summary_enabled": true,
+                        "vrfs": {
+                            "CUST-1": {
+                                "peers": [
+                                    {
+                                        "rpl_out": "RPL-1-EXPORT-V4",
+                                        "rpl_in": "RPL-1-IMPORT-v4",
+                                        "afi": "ipv4",
+                                        "description": "peer-1",
+                                        "remote_as": "65101",
+                                        "peer_ip": "192.0.2.1",
+                                        "local_asn": "65100",
+                                        "hostname": "hostname"
+                                    },
+                                    {
+                                        "rpl_out": "RPL-2-EXPORT-V6",
+                                        "rpl_in": "RPL-2-IMPORT-V6",
+                                        "afi": "ipv4",
+                                        "description": "peer-2",
+                                        "remote_as": "65102",
+                                        "peer_ip": "192.0.2.2",
+                                        "local_asn": "65100",
+                                        "hostname": "hostname"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
             },
             "security": {
                 "access_lists": [

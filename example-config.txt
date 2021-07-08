@@ -384,6 +384,21 @@ router bgp 65000
   no synchronization
  exit-address-family
 !
+router bgp 65100
+ vrf CUST-1
+  neighbor 192.0.2.1
+   remote-as 65101
+   description peer-1
+   address-family ipv4 unicast
+    route-map RPL-1-IMPORT-v4 in
+    route-map RPL-1-EXPORT-V4 out
+  neighbor 192.0.2.2
+   remote-as 65102
+   description peer-2
+   address-family ipv4 unicast
+    route-map RPL-2-IMPORT-V6 in
+    route-map RPL-2-EXPORT-V6 out
+!
 vlan 10,20,30,40,50,60,70,80,90,100,200
 !
 mac access-list extended MAC_ACL
