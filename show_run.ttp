@@ -1,0 +1,271 @@
+<group name="interfaces">
+interface {{ interface }}
+{{ mode | set(None) }}
+{{ disabled | set(False) }}
+{{ ip | set(None) }}
+{{ description | set(None) }}
+{{ dot1q | set(None) }}
+{{ ip | set(None) }}
+{{ mask | set(None) }}
+{{ vrf | set(None) }}
+{{ negotiation | set(None) }}
+{{ speed | set(None) }}
+{{ duplex | set(None) }}
+{{ ip_directed_broadcast | set(None) }}
+ switchport mode {{ mode }}
+ speed {{speed}}
+ duplex {{duplex}}
+ description {{ description | re(".+") }}
+ encapsulation dot1q {{ dot1q }}
+ ip address {{ ip }} {{ mask }}
+ ip vrf {{ vrf }}
+ vrf forwarding {{ vrf }}
+ shutdown {{ disabled | set(True) }}
+ negotiation {{ negation }}
+ ip directed-broadcast {{ ip_directed_broadcast | set(True) }}
+ <group name="service_instance">
+ {{ pop | set(None) }}
+ {{ symmetric | set(False) }}
+ {{ input_policy | set(None) }}
+ {{ output_policy | set(None) }}
+ service instance {{ id | record(id) }} ethernet
+  encapsulation {{ vlan }} second-dot1q {{ second_vlan }}
+  encapsulation dot1q {{ vlan }}
+  rewrite ingress tag pop {{ pop }} {{ symmetric }}
+  service-policy input {{ input_policy }}
+  service-policy output {{ output_policy }}
+  bridge-domain {{ bdomain }}
+ <group>
+</group>
+
+<group name="global.http_server">
+no ip http server{{ enabled | set(False) }}
+ip http server{{ enabled | set(True) }}
+</group>
+
+<group name="global.http_secure_server">
+no ip http secure-server{{ enabled | set(False) }}
+ip http secure-server{{ enabled | set(True) }}
+</group>
+
+<group name="global.version">
+version {{ version  | re(".+") }}
+</group>
+
+<group name="global.ip_domain_name">
+{{ domain_name | set(None) }}
+ip domain name {{ domain_name }}
+</group>
+
+<group name="global.cef">
+{{ cef | set(False) }}
+ip cef{{ cef | set(True) }}
+</group>
+
+<group name="global.subnet_zero">
+{{ subnet_zero | set(False) }}
+subnet-zero{{ subnet_zero | set(True) }}
+</group>
+
+<group name="management.hostname">
+hostname {{ hostname | re(".+") }}
+</group>
+
+<group name="routing.routes">
+{{ weight | set(None) }}
+ip route {{src | _start_}} {{mask}} {{dest}} {{weight}}
+ip route {{src | _start_}} {{mask}} {{dest}}
+</group>
+
+<group name="security.access_lists">
+access-list {{ id }} {{permit_deny}} {{ ip }} {{ wildcard}}
+</group>
+
+<group name="security.access_lists">
+access-list {{ id }} {{permit_deny}} {{ ip }} {{ wildcard}}
+</group>
+
+<group name="global.control_plane">
+{{ enabled | set(False) }}
+control-plane{{ enabled | set(True) }}
+</group>
+
+<group name="management.lldp_run">
+{{ enabled | set(False) }}
+lldp run{{ enabled | set(True) }}
+</group>
+
+<group name="management.cdp_run">
+{{ enabled | set(True) }}
+no cdp run{{ enabled | set(False) }}
+</group>
+
+<group name="management.scp_server">
+{{ enabled | set(False) }}
+ip scp server enable {{ enabled | set(True) }}
+</group>
+
+<group name="management.ssh2_server">
+{{ enabled | set(False) }}
+ip ssh version 2 {{ enabled | set(True) }}
+ip ssh ver 2 {{ enabled | set(True) }}
+</group>
+
+<group name="management.enable">
+{{ secret | set(None) }}
+{{ password | set(None) }}
+enable secret {{ secret }}
+enable password {{ password }}
+</group>
+
+<group name="management.snmp">
+snmp-server community {{community | _start_ }} {{mode}}
+snmp-server host {{trap_host | _start_ }} {{community}}
+</group>
+
+<group name="global.vlan">
+vlan {{ id | _start_ }} name {{ name }}
+vlan {{ id | _start_ | unrange(rangechar='-', joinchar=',' ) | split(',') }}
+</group>
+
+<group name="global.vtp">
+{{ enabled | set(True) }}
+vtp mode transparent{{ enabled | set(False) }}
+</group>
+
+<group name="management.ntp">
+ntp server {{ ip_address }}
+</group>
+
+<group name="management.line">
+line {{ vty | re(".+") | record(vty) }}
+ {{ password | set(None) }}
+ logging {{logging}}
+ stopbits {{stopbits}}
+ login {{ local }}
+ length {{ value }}
+ transport input {{ input }}
+ transport output {{ output }}
+ session-timeout {{ timeout }}
+ password {{ password }}
+</group>
+
+<group name="management.archive">
+archive
+ path {{ path }}
+ write {{ write }}
+</group>
+
+<group name="global.redundancy">
+redundancy
+ mode {{ mode }}
+</group>
+
+<group name="routing.vrf">
+vrf {{ vrf | re(".+") | record(vrf) }}
+ definition {{vrf_name}}
+ address-family {{af}}
+ exit-address-family
+</group>
+
+<group name="routing.ospf">
+router ospf {{ process | re(".+") | record(process) }}
+ {{ router_id | set(None) }}
+ router-id {{ router_id }}
+ <group name="area">
+ area {{ area }} {{ area_type }}
+ <group>
+ {{ passive_interface_enabled | set(False) }}
+ passive-interface default {{ passive_interface_enabled | set(True) }}
+<group name="no_passive_interface">
+ no passive-interface {{interface}}
+</group>
+<group name="networks">
+ network {{network}} {{wildcard}} area {{area}}
+</group>
+</group>
+
+<group name="routing.rip">
+router rip
+ version {{version}}
+ redistribute {{redistribute}}
+ <group name="address_family">
+ address-family {{address_family}} vrf {{vrf}}
+  <group name="redistribute">
+  redistribute {{redistribute}}
+  </group>
+  <group name="networks">
+  network {{network}}
+  </group>
+  {{ auto_summary_disabled | set(False) }}
+  no auto-summary{{ auto_summary_disabled | set(True) }}
+  version {{version}}
+ exit-address-family
+</group>
+</group>
+
+<group name="routing.eigrp">
+router eigrp {{as_number}}
+ {{ passive_interface_enabled | set(False) }}
+ passive-interface default {{ passive_interface_enabled | set(True) }}
+<group name="no_passive_interface">
+ no passive-interface {{interface}}
+</group>
+<group name="network">
+ network {{network | _start_ }} {{wildcard}}
+ network {{network | _start_ }}
+</group>
+{{ auto_summary_enabled | set(True) }}
+ no auto-summary{{ auto_summary_enabled | set(False) }}
+</group>
+
+<group name="routing.bgp_cfg">
+router bgp {{ asn | record(asn) }}
+ neighbor {{ neighbor_ip }} remote-as {{ remote_as }}
+  <group name="vrfs.{{ vrf_name }}" record="vrf_name">
+  vrf {{ vrf_name }}
+    <group name="/bgp_peers*" chain="chain_1">
+    neighbor {{ peer_ip }}
+      {{ local_asn | set(asn) }}
+      {{ hostname | set(hostname) }}
+      remote-as {{ peer_asn }}
+      description {{ description }}
+      address-family {{ afi }} unicast
+        route-map {{ rpl_in }} in
+        route-map {{ rpl_out }} out
+	</group>
+  </group>
+</group>
+
+<group name="security.access_lists">
+{{ src | set(None) }}
+{{ dest | set(None) }}
+{{ type | set(None) }}
+{{ src_proto | set(None) }}
+{{ dest_proto | set(None) }}
+{{ src_wildcard | set(None) }}
+{{ dest_wildcard | set(None) }}
+access-list {{id | _start_}} {{type}} {{src_proto }} host {{src}} eq {{dest_proto }} {{dest}}
+access-list {{id | _start_}} {{type}} {{src_proto }} host {{src}} {{dest}} eq {{dest_proto }}
+access-list {{id | _start_}} {{type}} {{src_proto }} host {{src}} {{dest}}
+access-list {{id | _start_}} {{type}} {{src_proto }} host {{src}} eq {{dest_proto }} {{dest}}
+access-list {{id | _start_}} {{type}} {{src_proto }} {{src}} {{dest}}
+access-list {{id | _start_}} {{type}} ip {{src}} {{src_wildcard}} {{dest}} {{dest_wildcard}}
+</group>
+
+<group name="security.aaa">
+aaa new-model
+aaa {{mode}} {{aaa}} default group {{primary}} {{secondary}}
+</group>
+
+<group name="security.radius">
+radius-server host {{host}} auth-port {{auth_port}} acct-port {{acct_port}} key {{key}}
+</group>
+
+<group name="security.tacacs">
+tacacs-server host {{host}} key 7 {{key}}
+</group>
+
+<group name="security.local_user">
+username {{username}} privilege {{priv}} secret {{secret_type}} {{secret}}
+</group>
