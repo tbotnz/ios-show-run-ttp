@@ -188,7 +188,26 @@ policy-map SERVICES_MARKING
   set qos-group 1
   set cos 1
 !
-!
+bridge-domain 3001 
+ no ip igmp snooping
+bridge-domain 3002 
+ no ip igmp snooping
+bridge-domain 3003 
+ no ip igmp snooping
+bridge-domain 3004 
+ no ip igmp snooping
+bridge-domain 3005 
+ no ip igmp snooping
+bridge-domain 3006 
+ no ip igmp snooping
+bridge-domain 3007 
+ no ip igmp snooping
+bridge-domain 3008 
+ no ip igmp snooping
+bridge-domain 3009 
+ no ip igmp snooping
+bridge-domain 3010 
+ no ip igmp snooping
 !
 interface Loopback1
  no ip address
@@ -255,7 +274,7 @@ interface Port-channel1
  carrier-delay msec 0
  negotiation auto
  service instance 100 ethernet
-  encapsulation dot1q 100
+  encapsulation dot1q 100 second-dot1q 32
   rewrite ingress tag pop 1 symmetric
   service-policy input PM-INGRESS-NETCONTROL-COS
   bridge-domain 100
@@ -269,7 +288,7 @@ interface Port-channel1
  !
  service instance 152 ethernet
   description TDM-E1_PT
-  encapsulation dot1q 152
+  encapsulation default
   rewrite ingress tag pop 1 symmetric
   service-policy input PM-INGRESS-NNI-TDM
   bridge-domain 152

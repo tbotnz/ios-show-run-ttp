@@ -32,8 +32,12 @@ interface {{ interface }}
  {{ input_policy | set(None) }}
  {{ output_policy | set(None) }}
  service instance {{ id | record(id) }} ethernet
-  encapsulation {{ vlan }} second-dot1q {{ second_vlan }}
-  encapsulation dot1q {{ vlan }}
+  description {{ description }}
+  <group name="encapsulation">
+  encapsulation {{ vlan | _start_ }} second-dot1q {{ second_vlan }}
+  encapsulation {{ vlan | _start_ }}
+  encapsulation dot1q {{ vlan | _start_ }}
+  </group>
   rewrite ingress tag pop {{ pop }} {{ symmetric }}
   service-policy input {{ input_policy }}
   service-policy output {{ output_policy }}
@@ -276,7 +280,7 @@ tacacs-server host {{host}} key 7 {{key}}
 username {{username}} privilege {{priv}} secret {{secret_type}} {{secret}}
 </group>
 
-<group name="global.policy">
+<group name="global.policy.policy">
 policy-map {{ policy_map | re(".+") | record(vrf) }}
 <group name="class.{{ class_name }}">
  class {{ class_name }}
@@ -292,4 +296,10 @@ class-map match-{{match_type}} {{class_name}}
  <group name="match">
  match {{type}} {{ value | unrange(rangechar='-', joinchar='  ' ) | split('  ') }}
 </group>
+</group>
+
+<group name="global.bridge_domain">
+bridge-domain {{name}}
+{{ igmp_snooping_enabled | set(True) }}
+ no ip igmp snooping{{ igmp_snooping_enabled | set(False) }}
 </group>
