@@ -40,7 +40,7 @@ interface {{ interface }}
  service instance {{ id | record(id) }} ethernet
   description {{ description }}
   <group name="encapsulation">
-  encapsulation {{ vlan | _start_ }} second-dot1q {{ second_vlan }}
+  encapsulation dot1q {{ vlan | _start_ }} second-dot1q {{ second_vlan }}
   encapsulation {{ vlan | _start_ }}
   encapsulation dot1q {{ vlan | _start_ }}
   </group>

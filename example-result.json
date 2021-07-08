@@ -400,12 +400,16 @@
                     "input_policy": null,
                     "service_instance": [
                         {
-                            "bdomain": "100",
-                            "input_policy": "PM-INGRESS-NETCONTROL-COS",
+                            "id": "100",
                             "pop": "1",
                             "symmetric": "symmetric",
-                            "id": "100",
-                            "output_policy": null
+                            "input_policy": "PM-INGRESS-NETCONTROL-COS",
+                            "output_policy": null,
+                            "bdomain": "100",
+                            "encapsulation": {
+                                "vlan": "100",
+                                "second_vlan": "32"
+                            }
                         },
                         {
                             "description": "TDM-E1_WT",
