@@ -35,7 +35,7 @@ interface {{ interface }}
   service-policy input {{ input_policy }}
   service-policy output {{ output_policy }}
   bridge-domain {{ bdomain }}
- <group>
+ </group>
 </group>
 
 <group name="global.http_server">
@@ -174,7 +174,7 @@ router ospf {{ process | re(".+") | record(process) }}
  router-id {{ router_id }}
  <group name="area">
  area {{ area }} {{ area_type }}
- <group>
+ </group>
  {{ passive_interface_enabled | set(False) }}
  passive-interface default {{ passive_interface_enabled | set(True) }}
 <group name="no_passive_interface">
