@@ -275,11 +275,6 @@ access-list {{id | _start_}} {{type}} {{src_proto }} {{src}} {{dest}}
 access-list {{id | _start_}} {{type}} ip {{src}} {{src_wildcard}} {{dest}} {{dest_wildcard}}
 </group>
 
-<group name="security.mac_access_lists">
- {{type}} {{ data| re(".+") }}
-</group>
-
-
 <group name="security.aaa">
 aaa new-model
 aaa {{mode}} {{aaa}} default group {{primary}} {{secondary}}
