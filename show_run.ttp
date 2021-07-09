@@ -127,12 +127,11 @@ enable password {{ password }}
 snmp-server community {{community | _start_ }} {{mode}}
 snmp-server host {{trap_host | _start_ }} {{community}}
 snmp-server trap-source {{trap_source}}
-<group name="enabled_traps">
-snmp-server enable traps {{ traps | re(".+") | split('  ') }}
+<group name="enabled_traps.{{ traps_name }}">
+snmp-server enable traps {{ traps_name | re(".+")}}
 </group>
 snmp-server host {{trap_host | _start_ }} version 2c {{community}}
 </group>
-
 
 <group name="management.logging">
 logging facility {{facility}}
@@ -306,7 +305,7 @@ policy-map {{ policy_map | re(".+") | record(vrf) }}
 <group name="global.policy.class">
 class-map match-{{match_type}} {{class_name}}
  <group name="match">
- match {{type}} {{ value | | re(".+") | unrange(rangechar='-', joinchar='  ' ) | split('  ') }}
+ match {{type}} {{ value | re(".+") | unrange(rangechar='-', joinchar='  ' ) | split('  ') }}
 </group>
 </group>
 
