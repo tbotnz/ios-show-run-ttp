@@ -791,7 +791,7 @@
                             "match": {
                                 "type": "dscp",
                                 "value": [
-                                    "af41"
+                                    "af41 "
                                 ]
                             }
                         },
@@ -801,7 +801,7 @@
                             "match": {
                                 "type": "dscp",
                                 "value": [
-                                    "ef"
+                                    "ef "
                                 ]
                             }
                         },
@@ -811,7 +811,7 @@
                             "match": {
                                 "type": "dscp",
                                 "value": [
-                                    "af32"
+                                    "af32 "
                                 ]
                             }
                         },
@@ -821,7 +821,7 @@
                             "match": {
                                 "type": "dscp",
                                 "value": [
-                                    "af22"
+                                    "af22 "
                                 ]
                             }
                         },
@@ -831,7 +831,7 @@
                             "match": {
                                 "type": "dscp",
                                 "value": [
-                                    "default"
+                                    "default "
                                 ]
                             }
                         },
@@ -841,7 +841,7 @@
                             "match": {
                                 "type": "dscp",
                                 "value": [
-                                    "af11"
+                                    "af11 "
                                 ]
                             }
                         },
@@ -871,19 +871,28 @@
                             "match": {
                                 "type": "cos",
                                 "value": [
-                                    "5"
+                                    "5 "
                                 ]
                             }
                         },
                         {
                             "match_type": "any",
                             "class_name": "CM-GROUP6",
-                            "match": {
-                                "type": "qos-group",
-                                "value": [
-                                    "6"
-                                ]
-                            }
+                            "match": [
+                                {
+                                    "type": "qos-group",
+                                    "value": [
+                                        "6"
+                                    ]
+                                },
+                                {
+                                    "type": "dscp",
+                                    "value": [
+                                        "cs6",
+                                        "cs7 "
+                                    ]
+                                }
+                            ]
                         },
                         {
                             "match_type": "all",
@@ -891,7 +900,7 @@
                             "match": {
                                 "type": "cos",
                                 "value": [
-                                    "4"
+                                    "4 "
                                 ]
                             }
                         },
@@ -901,7 +910,7 @@
                             "match": {
                                 "type": "cos",
                                 "value": [
-                                    "3"
+                                    "3 "
                                 ]
                             }
                         },
@@ -911,7 +920,7 @@
                             "match": {
                                 "type": "cos",
                                 "value": [
-                                    "2"
+                                    "2 "
                                 ]
                             }
                         },
@@ -931,7 +940,7 @@
                             "match": {
                                 "type": "cos",
                                 "value": [
-                                    "1"
+                                    "1 "
                                 ]
                             }
                         },
@@ -951,7 +960,7 @@
                             "match": {
                                 "type": "cos",
                                 "value": [
-                                    "0"
+                                    "0 "
                                 ]
                             }
                         },
@@ -988,7 +997,7 @@
                                 {
                                     "type": "dscp",
                                     "value": [
-                                        "cs4"
+                                        "cs4 "
                                     ]
                                 }
                             ]
@@ -1095,7 +1104,119 @@
                     },
                     {
                         "community": "test",
-                        "mode": "RO"
+                        "mode": "RO",
+                        "enabled_traps": [
+                            {
+                                "traps": [
+                                    "snmp authentication linkdown linkup coldstart warmstart"
+                                ]
+                            },
+                            {
+                                "traps": [
+                                    "ospf state-change if-state-change neighbor-state-change"
+                                ]
+                            },
+                            {
+                                "traps": [
+                                    "bgp state-changes all"
+                                ]
+                            },
+                            {
+                                "traps": [
+                                    "config-copy"
+                                ]
+                            },
+                            {
+                                "traps": [
+                                    "config"
+                                ]
+                            },
+                            {
+                                "traps": [
+                                    "isis state-change"
+                                ]
+                            },
+                            {
+                                "traps": [
+                                    "ipsla"
+                                ]
+                            },
+                            {
+                                "traps": [
+                                    "ether-oam"
+                                ]
+                            },
+                            {
+                                "traps": [
+                                    "memory bufferpeak"
+                                ]
+                            },
+                            {
+                                "traps": [
+                                    "entity-state"
+                                ]
+                            },
+                            {
+                                "traps": [
+                                    "entity"
+                                ]
+                            },
+                            {
+                                "traps": [
+                                    "cpu threshold"
+                                ]
+                            },
+                            {
+                                "traps": [
+                                    "rep"
+                                ]
+                            },
+                            {
+                                "traps": [
+                                    "entity-sensor"
+                                ]
+                            },
+                            {
+                                "traps": [
+                                    "resource-policy"
+                                ]
+                            },
+                            {
+                                "traps": [
+                                    "flash insertion"
+                                ]
+                            },
+                            {
+                                "traps": [
+                                    "flash removal"
+                                ]
+                            },
+                            {
+                                "traps": [
+                                    "mpls ldp session-up session-down"
+                                ]
+                            },
+                            {
+                                "traps": [
+                                    "pw vc"
+                                ]
+                            },
+                            {
+                                "traps": [
+                                    "bulkstat collection transfer"
+                                ]
+                            },
+                            {
+                                "traps": [
+                                    "mac-notification"
+                                ]
+                            },
+                            {
+                                "traps": [
+                                    "transceiver all"
+                                ]
+                            }
+                        ]
                     }
                 ],
                 "line": [

@@ -321,6 +321,28 @@ no ip http secure-server
 !
 snmp-server community cat RO
 snmp-server community test RO
+snmp-server enable traps snmp authentication linkdown linkup coldstart warmstart
+snmp-server enable traps ospf state-change if-state-change neighbor-state-change
+snmp-server enable traps bgp state-changes all
+snmp-server enable traps config-copy
+snmp-server enable traps config
+snmp-server enable traps isis state-change
+snmp-server enable traps ipsla
+snmp-server enable traps ether-oam
+snmp-server enable traps memory bufferpeak
+snmp-server enable traps entity-state
+snmp-server enable traps entity
+snmp-server enable traps cpu threshold
+snmp-server enable traps rep
+snmp-server enable traps entity-sensor
+snmp-server enable traps resource-policy
+snmp-server enable traps flash insertion
+snmp-server enable traps flash removal
+snmp-server enable traps mpls ldp session-up session-down
+snmp-server enable traps pw vc
+snmp-server enable traps bulkstat collection transfer
+snmp-server enable traps mac-notification
+snmp-server enable traps transceiver all
 no cdp log mismatch duplex
 !
 !
