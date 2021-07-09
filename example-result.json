@@ -1105,118 +1105,30 @@
                     {
                         "community": "test",
                         "mode": "RO",
-                        "enabled_traps": [
-                            {
-                                "traps": [
-                                    "snmp authentication linkdown linkup coldstart warmstart"
-                                ]
-                            },
-                            {
-                                "traps": [
-                                    "ospf state-change if-state-change neighbor-state-change"
-                                ]
-                            },
-                            {
-                                "traps": [
-                                    "bgp state-changes all"
-                                ]
-                            },
-                            {
-                                "traps": [
-                                    "config-copy"
-                                ]
-                            },
-                            {
-                                "traps": [
-                                    "config"
-                                ]
-                            },
-                            {
-                                "traps": [
-                                    "isis state-change"
-                                ]
-                            },
-                            {
-                                "traps": [
-                                    "ipsla"
-                                ]
-                            },
-                            {
-                                "traps": [
-                                    "ether-oam"
-                                ]
-                            },
-                            {
-                                "traps": [
-                                    "memory bufferpeak"
-                                ]
-                            },
-                            {
-                                "traps": [
-                                    "entity-state"
-                                ]
-                            },
-                            {
-                                "traps": [
-                                    "entity"
-                                ]
-                            },
-                            {
-                                "traps": [
-                                    "cpu threshold"
-                                ]
-                            },
-                            {
-                                "traps": [
-                                    "rep"
-                                ]
-                            },
-                            {
-                                "traps": [
-                                    "entity-sensor"
-                                ]
-                            },
-                            {
-                                "traps": [
-                                    "resource-policy"
-                                ]
-                            },
-                            {
-                                "traps": [
-                                    "flash insertion"
-                                ]
-                            },
-                            {
-                                "traps": [
-                                    "flash removal"
-                                ]
-                            },
-                            {
-                                "traps": [
-                                    "mpls ldp session-up session-down"
-                                ]
-                            },
-                            {
-                                "traps": [
-                                    "pw vc"
-                                ]
-                            },
-                            {
-                                "traps": [
-                                    "bulkstat collection transfer"
-                                ]
-                            },
-                            {
-                                "traps": [
-                                    "mac-notification"
-                                ]
-                            },
-                            {
-                                "traps": [
-                                    "transceiver all"
-                                ]
-                            }
-                        ]
+                        "enabled_traps": {
+                            "snmp authentication linkdown linkup coldstart warmstart": {},
+                            "ospf state-change if-state-change neighbor-state-change": {},
+                            "bgp state-changes all": {},
+                            "config-copy": {},
+                            "config": {},
+                            "isis state-change": {},
+                            "ipsla": {},
+                            "ether-oam": {},
+                            "memory bufferpeak": {},
+                            "entity-state": {},
+                            "entity": {},
+                            "cpu threshold": {},
+                            "rep": {},
+                            "entity-sensor": {},
+                            "resource-policy": {},
+                            "flash insertion": {},
+                            "flash removal": {},
+                            "mpls ldp session-up session-down": {},
+                            "pw vc": {},
+                            "bulkstat collection transfer": {},
+                            "mac-notification": {},
+                            "transceiver all": {}
+                        }
                     }
                 ],
                 "line": [
