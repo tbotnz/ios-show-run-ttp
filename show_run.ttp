@@ -306,7 +306,7 @@ policy-map {{ policy_map | re(".+") | record(vrf) }}
 <group name="global.policy.class">
 class-map match-{{match_type}} {{class_name}}
  <group name="match">
- match {{type}} {{ value | unrange(rangechar='-', joinchar='  ' ) | split('  ') }}
+ match {{type}} {{ value | | re(".+") | unrange(rangechar='-', joinchar='  ' ) | split('  ') }}
 </group>
 </group>
 
