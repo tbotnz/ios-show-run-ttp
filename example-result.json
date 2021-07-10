@@ -1,9 +1,8 @@
 [
     [
         {
-            "interfaces": [
-                {
-                    "interface": "Loopback1",
+            "interfaces": {
+                "Loopback1": {
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -20,12 +19,11 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
+                "FastEthernet0/0": {
                     "speed": "auto",
                     "duplex": "auto",
                     "ip": "10.0.2.33",
                     "mask": "255.255.255.0",
-                    "interface": "FastEthernet0/0",
                     "mode": null,
                     "disabled": false,
                     "description": null,
@@ -38,13 +36,12 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
+                "FastEthernet0/1": {
                     "speed": "auto",
                     "duplex": "auto",
                     "ip": "192.168.1.1",
                     "mask": "255.255.255.0",
                     "description": "cat",
-                    "interface": "FastEthernet0/1",
                     "mode": null,
                     "disabled": false,
                     "dot1q": null,
@@ -56,12 +53,11 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
+                "FastEthernet1/0": {
                     "speed": "auto",
                     "duplex": "auto",
                     "ip": "192.168.3.1",
                     "mask": "255.255.255.0",
-                    "interface": "FastEthernet1/0",
                     "mode": null,
                     "disabled": false,
                     "description": null,
@@ -74,10 +70,9 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
+                "FastEthernet2/0": {
                     "speed": "auto",
                     "duplex": "auto",
-                    "interface": "FastEthernet2/0",
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -92,26 +87,7 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
-                    "interface": "FastEthernet3/0",
-                    "mode": null,
-                    "disabled": false,
-                    "ip": null,
-                    "description": null,
-                    "dot1q": null,
-                    "mask": null,
-                    "vrf": null,
-                    "negotiation": null,
-                    "speed": null,
-                    "duplex": null,
-                    "vlan": null,
-                    "ip_directed_broadcast": null,
-                    "input_mac_acl": null,
-                    "output_mac_acl": null,
-                    "input_policy": null
-                },
-                {
-                    "interface": "FastEthernet3/1",
+                "FastEthernet3/0": {
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -128,8 +104,7 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
-                    "interface": "FastEthernet3/2",
+                "FastEthernet3/1": {
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -146,8 +121,7 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
-                    "interface": "FastEthernet3/3",
+                "FastEthernet3/2": {
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -164,8 +138,7 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
-                    "interface": "FastEthernet3/4",
+                "FastEthernet3/3": {
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -182,8 +155,7 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
-                    "interface": "FastEthernet3/5",
+                "FastEthernet3/4": {
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -200,8 +172,7 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
-                    "interface": "FastEthernet3/6",
+                "FastEthernet3/5": {
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -218,8 +189,7 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
-                    "interface": "FastEthernet3/7",
+                "FastEthernet3/6": {
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -236,8 +206,7 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
-                    "interface": "FastEthernet3/8",
+                "FastEthernet3/7": {
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -254,8 +223,7 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
-                    "interface": "FastEthernet3/9",
+                "FastEthernet3/8": {
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -272,8 +240,7 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
-                    "interface": "FastEthernet3/10",
+                "FastEthernet3/9": {
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -290,8 +257,7 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
-                    "interface": "FastEthernet3/11",
+                "FastEthernet3/10": {
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -308,8 +274,7 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
-                    "interface": "FastEthernet3/12",
+                "FastEthernet3/11": {
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -326,8 +291,7 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
-                    "interface": "FastEthernet3/13",
+                "FastEthernet3/12": {
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -344,8 +308,7 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
-                    "interface": "FastEthernet3/14",
+                "FastEthernet3/13": {
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -362,8 +325,7 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
-                    "interface": "FastEthernet3/15",
+                "FastEthernet3/14": {
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -380,10 +342,26 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
+                "FastEthernet3/15": {
+                    "mode": null,
+                    "disabled": false,
+                    "ip": null,
+                    "description": null,
+                    "dot1q": null,
+                    "mask": null,
+                    "vrf": null,
+                    "negotiation": null,
+                    "speed": null,
+                    "duplex": null,
+                    "vlan": null,
+                    "ip_directed_broadcast": null,
+                    "input_mac_acl": null,
+                    "output_mac_acl": null,
+                    "input_policy": null
+                },
+                "Port-channel1": {
                     "negation": "auto",
                     "description": "<description/Remark>",
-                    "interface": "Port-channel1",
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -437,11 +415,10 @@
                         }
                     ]
                 },
-                {
+                "Vlan1": {
                     "input_policy": "BG_MARKING",
                     "output_mac_acl": "MAC_ACL",
                     "input_mac_acl": "MAC_ACL",
-                    "interface": "Vlan1",
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -455,8 +432,7 @@
                     "vlan": null,
                     "ip_directed_broadcast": null
                 },
-                {
-                    "interface": "Vlan2",
+                "Vlan2": {
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -473,8 +449,7 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
-                    "interface": "Vlan3",
+                "Vlan3": {
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -491,8 +466,7 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
-                    "interface": "Vlan5",
+                "Vlan5": {
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -509,8 +483,7 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
-                    "interface": "Vlan99",
+                "Vlan99": {
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -527,7 +500,7 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 }
-            ],
+            },
             "global": {
                 "http_server": {
                     "enabled": false
@@ -1268,6 +1241,11 @@
                             "auto_summary_disabled": false
                         }
                     ]
+                },
+                "eigrp": {
+                    "no_passive_interface": {
+                        "interface": "Loopback0"
+                    }
                 },
                 "bgp": [
                     {

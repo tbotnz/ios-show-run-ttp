@@ -1,4 +1,4 @@
-<group name="interfaces">
+<group name="interfaces.{{interface}}">
 interface {{ interface }}
 {{ mode | set(None) }}
 {{ disabled | set(False) }}
