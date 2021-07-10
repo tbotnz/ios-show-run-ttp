@@ -32,7 +32,7 @@ interface {{ interface }}
  mac access-group {{ input_mac_acl }} in
  mac access-group {{ output_mac_acl }} out
  service-policy input {{ input_policy }}
- <group name="service_instance">
+ <group name="service_instance.{{id}}">
  {{ pop | set(None) }}
  {{ symmetric | set(False) }}
  {{ input_policy | set(None) }}

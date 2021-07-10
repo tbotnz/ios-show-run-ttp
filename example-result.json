@@ -376,9 +376,8 @@
                     "input_mac_acl": null,
                     "output_mac_acl": null,
                     "input_policy": null,
-                    "service_instance": [
-                        {
-                            "id": "100",
+                    "service_instance": {
+                        "100": {
                             "pop": "1",
                             "symmetric": "symmetric",
                             "input_policy": "PM-INGRESS-NETCONTROL-COS",
@@ -389,9 +388,8 @@
                                 "second_vlan": "32"
                             }
                         },
-                        {
+                        "151": {
                             "description": "TDM-E1_WT",
-                            "id": "151",
                             "pop": "1",
                             "symmetric": "symmetric",
                             "input_policy": "PM-INGRESS-NNI-TDM",
@@ -401,9 +399,8 @@
                                 "vlan": "151"
                             }
                         },
-                        {
+                        "152": {
                             "description": "TDM-E1_PT",
-                            "id": "152",
                             "pop": "1",
                             "symmetric": "symmetric",
                             "input_policy": "PM-INGRESS-NNI-TDM",
@@ -413,7 +410,7 @@
                                 "vlan": "default"
                             }
                         }
-                    ]
+                    }
                 },
                 "Vlan1": {
                     "input_policy": "BG_MARKING",
