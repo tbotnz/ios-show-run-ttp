@@ -1091,30 +1091,26 @@
                         }
                     }
                 ],
-                "line": [
-                    {
+                "line": {
+                    "con 0": {
                         "logging": "synchronous",
-                        "vty": "con 0",
                         "password": null
                     },
-                    {
+                    "aux 0": {
                         "logging": "synchronous",
-                        "vty": "aux 0",
                         "password": null
                     },
-                    {
+                    "vty 0 4": {
                         "input": "ssh",
                         "local": "local",
-                        "vty": "vty 0 4",
                         "password": null
                     },
-                    {
+                    "vty 5 15": {
                         "input": "ssh",
                         "local": "local",
-                        "vty": "vty 5 15",
                         "password": null
                     }
-                ]
+                }
             },
             "routing": {
                 "routes": {

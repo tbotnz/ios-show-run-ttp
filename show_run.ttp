@@ -155,7 +155,7 @@ vtp mode transparent{{ enabled | set(False) }}
 ntp server {{ ip_address }}
 </group>
 
-<group name="management.line">
+<group name="management.line.{{vty}}">
 line {{ vty | re(".+") | record(vty) }}
  {{ password | set(None) }}
  logging {{logging}}
