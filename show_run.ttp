@@ -309,7 +309,7 @@ class-map match-{{match_type}} {{class_name}}
 </group>
 </group>
 
-<group name="global.bridge_domain">
+<group name="global.bridge_domain.{{name}}">
 bridge-domain {{name}}
 {{ igmp_snooping_enabled | set(True) }}
  no ip igmp snooping{{ igmp_snooping_enabled | set(False) }}

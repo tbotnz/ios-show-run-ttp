@@ -1004,48 +1004,38 @@
                         }
                     ]
                 },
-                "bridge_domain": [
-                    {
-                        "igmp_snooping_enabled": false,
-                        "name": "3001"
+                "bridge_domain": {
+                    "3001": {
+                        "igmp_snooping_enabled": false
                     },
-                    {
-                        "igmp_snooping_enabled": false,
-                        "name": "3002"
+                    "3002": {
+                        "igmp_snooping_enabled": false
                     },
-                    {
-                        "igmp_snooping_enabled": false,
-                        "name": "3003"
+                    "3003": {
+                        "igmp_snooping_enabled": false
                     },
-                    {
-                        "igmp_snooping_enabled": false,
-                        "name": "3004"
+                    "3004": {
+                        "igmp_snooping_enabled": false
                     },
-                    {
-                        "igmp_snooping_enabled": false,
-                        "name": "3005"
+                    "3005": {
+                        "igmp_snooping_enabled": false
                     },
-                    {
-                        "igmp_snooping_enabled": false,
-                        "name": "3006"
+                    "3006": {
+                        "igmp_snooping_enabled": false
                     },
-                    {
-                        "igmp_snooping_enabled": false,
-                        "name": "3007"
+                    "3007": {
+                        "igmp_snooping_enabled": false
                     },
-                    {
-                        "igmp_snooping_enabled": false,
-                        "name": "3008"
+                    "3008": {
+                        "igmp_snooping_enabled": false
                     },
-                    {
-                        "igmp_snooping_enabled": false,
-                        "name": "3009"
+                    "3009": {
+                        "igmp_snooping_enabled": false
                     },
-                    {
-                        "igmp_snooping_enabled": false,
-                        "name": "3010"
+                    "3010": {
+                        "igmp_snooping_enabled": false
                     }
-                ]
+                }
             },
             "management": {
                 "hostname": {
