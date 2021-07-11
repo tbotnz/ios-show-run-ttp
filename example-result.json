@@ -1,9 +1,8 @@
 [
     [
         {
-            "interfaces": [
-                {
-                    "interface": "Loopback1",
+            "interfaces": {
+                "Loopback1": {
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -20,12 +19,11 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
+                "FastEthernet0/0": {
                     "speed": "auto",
                     "duplex": "auto",
                     "ip": "10.0.2.33",
                     "mask": "255.255.255.0",
-                    "interface": "FastEthernet0/0",
                     "mode": null,
                     "disabled": false,
                     "description": null,
@@ -38,13 +36,12 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
+                "FastEthernet0/1": {
                     "speed": "auto",
                     "duplex": "auto",
                     "ip": "192.168.1.1",
                     "mask": "255.255.255.0",
                     "description": "cat",
-                    "interface": "FastEthernet0/1",
                     "mode": null,
                     "disabled": false,
                     "dot1q": null,
@@ -56,12 +53,11 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
+                "FastEthernet1/0": {
                     "speed": "auto",
                     "duplex": "auto",
                     "ip": "192.168.3.1",
                     "mask": "255.255.255.0",
-                    "interface": "FastEthernet1/0",
                     "mode": null,
                     "disabled": false,
                     "description": null,
@@ -74,10 +70,9 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
+                "FastEthernet2/0": {
                     "speed": "auto",
                     "duplex": "auto",
-                    "interface": "FastEthernet2/0",
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -92,26 +87,7 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
-                    "interface": "FastEthernet3/0",
-                    "mode": null,
-                    "disabled": false,
-                    "ip": null,
-                    "description": null,
-                    "dot1q": null,
-                    "mask": null,
-                    "vrf": null,
-                    "negotiation": null,
-                    "speed": null,
-                    "duplex": null,
-                    "vlan": null,
-                    "ip_directed_broadcast": null,
-                    "input_mac_acl": null,
-                    "output_mac_acl": null,
-                    "input_policy": null
-                },
-                {
-                    "interface": "FastEthernet3/1",
+                "FastEthernet3/0": {
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -128,8 +104,7 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
-                    "interface": "FastEthernet3/2",
+                "FastEthernet3/1": {
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -146,8 +121,7 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
-                    "interface": "FastEthernet3/3",
+                "FastEthernet3/2": {
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -164,8 +138,7 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
-                    "interface": "FastEthernet3/4",
+                "FastEthernet3/3": {
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -182,8 +155,7 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
-                    "interface": "FastEthernet3/5",
+                "FastEthernet3/4": {
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -200,8 +172,7 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
-                    "interface": "FastEthernet3/6",
+                "FastEthernet3/5": {
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -218,8 +189,7 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
-                    "interface": "FastEthernet3/7",
+                "FastEthernet3/6": {
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -236,8 +206,7 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
-                    "interface": "FastEthernet3/8",
+                "FastEthernet3/7": {
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -254,8 +223,7 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
-                    "interface": "FastEthernet3/9",
+                "FastEthernet3/8": {
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -272,8 +240,7 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
-                    "interface": "FastEthernet3/10",
+                "FastEthernet3/9": {
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -290,8 +257,7 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
-                    "interface": "FastEthernet3/11",
+                "FastEthernet3/10": {
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -308,8 +274,7 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
-                    "interface": "FastEthernet3/12",
+                "FastEthernet3/11": {
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -326,8 +291,7 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
-                    "interface": "FastEthernet3/13",
+                "FastEthernet3/12": {
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -344,8 +308,7 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
-                    "interface": "FastEthernet3/14",
+                "FastEthernet3/13": {
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -362,8 +325,7 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
-                    "interface": "FastEthernet3/15",
+                "FastEthernet3/14": {
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -380,10 +342,26 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
+                "FastEthernet3/15": {
+                    "mode": null,
+                    "disabled": false,
+                    "ip": null,
+                    "description": null,
+                    "dot1q": null,
+                    "mask": null,
+                    "vrf": null,
+                    "negotiation": null,
+                    "speed": null,
+                    "duplex": null,
+                    "vlan": null,
+                    "ip_directed_broadcast": null,
+                    "input_mac_acl": null,
+                    "output_mac_acl": null,
+                    "input_policy": null
+                },
+                "Port-channel1": {
                     "negation": "auto",
                     "description": "<description/Remark>",
-                    "interface": "Port-channel1",
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -398,9 +376,8 @@
                     "input_mac_acl": null,
                     "output_mac_acl": null,
                     "input_policy": null,
-                    "service_instance": [
-                        {
-                            "id": "100",
+                    "service_instance": {
+                        "100": {
                             "pop": "1",
                             "symmetric": "symmetric",
                             "input_policy": "PM-INGRESS-NETCONTROL-COS",
@@ -411,9 +388,8 @@
                                 "second_vlan": "32"
                             }
                         },
-                        {
+                        "151": {
                             "description": "TDM-E1_WT",
-                            "id": "151",
                             "pop": "1",
                             "symmetric": "symmetric",
                             "input_policy": "PM-INGRESS-NNI-TDM",
@@ -423,9 +399,8 @@
                                 "vlan": "151"
                             }
                         },
-                        {
+                        "152": {
                             "description": "TDM-E1_PT",
-                            "id": "152",
                             "pop": "1",
                             "symmetric": "symmetric",
                             "input_policy": "PM-INGRESS-NNI-TDM",
@@ -435,13 +410,12 @@
                                 "vlan": "default"
                             }
                         }
-                    ]
+                    }
                 },
-                {
+                "Vlan1": {
                     "input_policy": "BG_MARKING",
                     "output_mac_acl": "MAC_ACL",
                     "input_mac_acl": "MAC_ACL",
-                    "interface": "Vlan1",
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -455,8 +429,7 @@
                     "vlan": null,
                     "ip_directed_broadcast": null
                 },
-                {
-                    "interface": "Vlan2",
+                "Vlan2": {
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -473,8 +446,7 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
-                    "interface": "Vlan3",
+                "Vlan3": {
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -491,8 +463,7 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
-                    "interface": "Vlan5",
+                "Vlan5": {
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -509,8 +480,7 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 },
-                {
-                    "interface": "Vlan99",
+                "Vlan99": {
                     "mode": null,
                     "disabled": false,
                     "ip": null,
@@ -527,7 +497,7 @@
                     "output_mac_acl": null,
                     "input_policy": null
                 }
-            ],
+            },
             "global": {
                 "http_server": {
                     "enabled": false
@@ -1034,48 +1004,38 @@
                         }
                     ]
                 },
-                "bridge_domain": [
-                    {
-                        "igmp_snooping_enabled": false,
-                        "name": "3001"
+                "bridge_domain": {
+                    "3001": {
+                        "igmp_snooping_enabled": false
                     },
-                    {
-                        "igmp_snooping_enabled": false,
-                        "name": "3002"
+                    "3002": {
+                        "igmp_snooping_enabled": false
                     },
-                    {
-                        "igmp_snooping_enabled": false,
-                        "name": "3003"
+                    "3003": {
+                        "igmp_snooping_enabled": false
                     },
-                    {
-                        "igmp_snooping_enabled": false,
-                        "name": "3004"
+                    "3004": {
+                        "igmp_snooping_enabled": false
                     },
-                    {
-                        "igmp_snooping_enabled": false,
-                        "name": "3005"
+                    "3005": {
+                        "igmp_snooping_enabled": false
                     },
-                    {
-                        "igmp_snooping_enabled": false,
-                        "name": "3006"
+                    "3006": {
+                        "igmp_snooping_enabled": false
                     },
-                    {
-                        "igmp_snooping_enabled": false,
-                        "name": "3007"
+                    "3007": {
+                        "igmp_snooping_enabled": false
                     },
-                    {
-                        "igmp_snooping_enabled": false,
-                        "name": "3008"
+                    "3008": {
+                        "igmp_snooping_enabled": false
                     },
-                    {
-                        "igmp_snooping_enabled": false,
-                        "name": "3009"
+                    "3009": {
+                        "igmp_snooping_enabled": false
                     },
-                    {
-                        "igmp_snooping_enabled": false,
-                        "name": "3010"
+                    "3010": {
+                        "igmp_snooping_enabled": false
                     }
-                ]
+                }
             },
             "management": {
                 "hostname": {
@@ -1131,88 +1091,70 @@
                         }
                     }
                 ],
-                "line": [
-                    {
+                "line": {
+                    "con 0": {
                         "logging": "synchronous",
-                        "vty": "con 0",
                         "password": null
                     },
-                    {
+                    "aux 0": {
                         "logging": "synchronous",
-                        "vty": "aux 0",
                         "password": null
                     },
-                    {
+                    "vty 0 4": {
                         "input": "ssh",
                         "local": "local",
-                        "vty": "vty 0 4",
                         "password": null
                     },
-                    {
+                    "vty 5 15": {
                         "input": "ssh",
                         "local": "local",
-                        "vty": "vty 5 15",
                         "password": null
                     }
-                ]
+                }
             },
             "routing": {
                 "routes": {
                     "weight": null
                 },
                 "ospf": {
-                    "router_id": "10.249.16.152",
-                    "process": "7306",
-                    "passive_interface_enabled": true,
-                    "area": {
-                        "area": "0.0.0.60",
-                        "area_type": "nssa"
-                    },
-                    "no_passive_interface": {
-                        "interface": "Loopback0"
-                    },
-                    "networks": [
-                        {
-                            "network": "10.249.16.152",
-                            "wildcard": "0.0.0.0",
-                            "area": "0.0.0.60"
+                    "7306": {
+                        "router_id": "10.249.16.152",
+                        "passive_interface_enabled": true,
+                        "area": {
+                            "0.0.0.60": {
+                                "area_type": "nssa"
+                            }
                         },
-                        {
-                            "network": "10.249.24.136",
-                            "wildcard": "0.0.0.7",
-                            "area": "0.0.0.60"
+                        "no_passive_interface": {
+                            "interface": "Loopback0"
                         },
-                        {
-                            "network": "10.249.29.24",
-                            "wildcard": "0.0.0.7",
-                            "area": "0.0.0.60"
-                        },
-                        {
-                            "network": "10.251.250.94",
-                            "wildcard": "0.0.0.1",
-                            "area": "0.0.0.60"
-                        },
-                        {
-                            "network": "10.251.250.180",
-                            "wildcard": "0.0.0.1",
-                            "area": "0.0.0.60"
-                        },
-                        {
-                            "network": "10.251.253.88",
-                            "wildcard": "0.0.0.1",
-                            "area": "0.0.0.60"
-                        },
-                        {
-                            "network": "10.251.253.90",
-                            "wildcard": "0.0.0.1",
-                            "area": "0.0.0.60"
-                        },
-                        {
-                            "network": "10.251.253.168",
-                            "wildcard": "0.0.0.7",
-                            "area": "0.0.0.60"
+                        "networks": {
+                            "10.249.16.152/0": {
+                                "area": "0.0.0.60"
+                            },
+                            "10.249.24.136/29": {
+                                "area": "0.0.0.60"
+                            },
+                            "10.249.29.24/29": {
+                                "area": "0.0.0.60"
+                            },
+                            "10.251.250.94/31": {
+                                "area": "0.0.0.60"
+                            },
+                            "10.251.250.180/31": {
+                                "area": "0.0.0.60"
+                            },
+                            "10.251.253.88/31": {
+                                "area": "0.0.0.60"
+                            },
+                            "10.251.253.90/31": {
+                                "area": "0.0.0.60"
+                            },
+                            "10.251.253.168/29": {
+                                "area": "0.0.0.60"
+                            }
                         }
-                    ]
+                    }
                 },
                 "rip": {
                     "redistribute": "static",
@@ -1268,6 +1210,11 @@
                             "auto_summary_disabled": false
                         }
                     ]
+                },
+                "eigrp": {
+                    "no_passive_interface": {
+                        "interface": "Loopback0"
+                    }
                 },
                 "bgp": [
                     {

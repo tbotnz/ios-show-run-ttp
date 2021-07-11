@@ -1,4 +1,4 @@
-<group name="interfaces">
+<group name="interfaces.{{interface}}">
 interface {{ interface }}
 {{ mode | set(None) }}
 {{ disabled | set(False) }}
@@ -32,7 +32,7 @@ interface {{ interface }}
  mac access-group {{ input_mac_acl }} in
  mac access-group {{ output_mac_acl }} out
  service-policy input {{ input_policy }}
- <group name="service_instance">
+ <group name="service_instance.{{id}}">
  {{ pop | set(None) }}
  {{ symmetric | set(False) }}
  {{ input_policy | set(None) }}
@@ -155,7 +155,7 @@ vtp mode transparent{{ enabled | set(False) }}
 ntp server {{ ip_address }}
 </group>
 
-<group name="management.line">
+<group name="management.line.{{vty}}">
 line {{ vty | re(".+") | record(vty) }}
  {{ password | set(None) }}
  logging {{logging}}
@@ -186,11 +186,11 @@ vrf {{ vrf | re(".+") | record(vrf) }}
  exit-address-family
 </group>
 
-<group name="routing.ospf">
+<group name="routing.ospf.{{process}}">
 router ospf {{ process | re(".+") | record(process) }}
  {{ router_id | set(None) }}
  router-id {{ router_id }}
- <group name="area">
+ <group name="area.{{area}}">
  area {{ area }} {{ area_type }}
  </group>
  {{ passive_interface_enabled | set(False) }}
@@ -198,8 +198,8 @@ router ospf {{ process | re(".+") | record(process) }}
 <group name="no_passive_interface">
  no passive-interface {{interface}}
 </group>
-<group name="networks">
- network {{network}} {{wildcard}} area {{area}}
+<group name="networks.{{network}}" record="network">
+ network {{network | PHRASE | to_ip | with_prefixlen}} area {{area}}
 </group>
 </group>
 
@@ -309,7 +309,7 @@ class-map match-{{match_type}} {{class_name}}
 </group>
 </group>
 
-<group name="global.bridge_domain">
+<group name="global.bridge_domain.{{name}}">
 bridge-domain {{name}}
 {{ igmp_snooping_enabled | set(True) }}
  no ip igmp snooping{{ igmp_snooping_enabled | set(False) }}
