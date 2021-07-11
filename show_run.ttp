@@ -186,11 +186,11 @@ vrf {{ vrf | re(".+") | record(vrf) }}
  exit-address-family
 </group>
 
-<group name="routing.ospf">
+<group name="routing.ospf.{{process}}">
 router ospf {{ process | re(".+") | record(process) }}
  {{ router_id | set(None) }}
  router-id {{ router_id }}
- <group name="area">
+ <group name="area.{{area}}">
  area {{ area }} {{ area_type }}
  </group>
  {{ passive_interface_enabled | set(False) }}
@@ -198,8 +198,8 @@ router ospf {{ process | re(".+") | record(process) }}
 <group name="no_passive_interface">
  no passive-interface {{interface}}
 </group>
-<group name="networks">
- network {{network}} {{wildcard}} area {{area}}
+<group name="networks.{{network}}" record="network">
+ network {{network | PHRASE | to_ip | with_prefixlen}} area {{area}}
 </group>
 </group>
 

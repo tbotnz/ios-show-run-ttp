@@ -1117,58 +1117,44 @@
                     "weight": null
                 },
                 "ospf": {
-                    "router_id": "10.249.16.152",
-                    "process": "7306",
-                    "passive_interface_enabled": true,
-                    "area": {
-                        "area": "0.0.0.60",
-                        "area_type": "nssa"
-                    },
-                    "no_passive_interface": {
-                        "interface": "Loopback0"
-                    },
-                    "networks": [
-                        {
-                            "network": "10.249.16.152",
-                            "wildcard": "0.0.0.0",
-                            "area": "0.0.0.60"
+                    "7306": {
+                        "router_id": "10.249.16.152",
+                        "passive_interface_enabled": true,
+                        "area": {
+                            "0.0.0.60": {
+                                "area_type": "nssa"
+                            }
                         },
-                        {
-                            "network": "10.249.24.136",
-                            "wildcard": "0.0.0.7",
-                            "area": "0.0.0.60"
+                        "no_passive_interface": {
+                            "interface": "Loopback0"
                         },
-                        {
-                            "network": "10.249.29.24",
-                            "wildcard": "0.0.0.7",
-                            "area": "0.0.0.60"
-                        },
-                        {
-                            "network": "10.251.250.94",
-                            "wildcard": "0.0.0.1",
-                            "area": "0.0.0.60"
-                        },
-                        {
-                            "network": "10.251.250.180",
-                            "wildcard": "0.0.0.1",
-                            "area": "0.0.0.60"
-                        },
-                        {
-                            "network": "10.251.253.88",
-                            "wildcard": "0.0.0.1",
-                            "area": "0.0.0.60"
-                        },
-                        {
-                            "network": "10.251.253.90",
-                            "wildcard": "0.0.0.1",
-                            "area": "0.0.0.60"
-                        },
-                        {
-                            "network": "10.251.253.168",
-                            "wildcard": "0.0.0.7",
-                            "area": "0.0.0.60"
+                        "networks": {
+                            "10.249.16.152/0": {
+                                "area": "0.0.0.60"
+                            },
+                            "10.249.24.136/29": {
+                                "area": "0.0.0.60"
+                            },
+                            "10.249.29.24/29": {
+                                "area": "0.0.0.60"
+                            },
+                            "10.251.250.94/31": {
+                                "area": "0.0.0.60"
+                            },
+                            "10.251.250.180/31": {
+                                "area": "0.0.0.60"
+                            },
+                            "10.251.253.88/31": {
+                                "area": "0.0.0.60"
+                            },
+                            "10.251.253.90/31": {
+                                "area": "0.0.0.60"
+                            },
+                            "10.251.253.168/29": {
+                                "area": "0.0.0.60"
+                            }
                         }
-                    ]
+                    }
                 },
                 "rip": {
                     "redistribute": "static",
