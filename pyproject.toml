@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "ios-show-run-ttp"
+version = "0.1.0"
+description = "TTP template for parsing show run for cisco IOS"
+authors = ["tbotnz <tonynealon1989@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+ttp = "^0.7.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.4"
+"ruamel.yaml" = "^0.17.10"
+black = "^21.6b0"
+deepdiff = "^5.5.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
