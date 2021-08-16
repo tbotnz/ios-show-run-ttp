@@ -207,12 +207,12 @@ router ospf {{ process | re(".+") | record(process) }}
 router rip
  version {{version}}
  redistribute {{redistribute}}
- <group name="address_family">
- address-family {{address_family}} vrf {{vrf}}
-  <group name="redistribute">
+ <group name="address_family.{{afi}}.{{vrf}}">
+ address-family {{afi}} vrf {{vrf}}
+  <group name="redistribute.{{redistribute}}">
   redistribute {{redistribute}}
   </group>
-  <group name="networks">
+  <group name="networks.{{network}}">
   network {{network}}
   </group>
   {{ auto_summary_disabled | set(False) }}
@@ -220,6 +220,7 @@ router rip
   version {{version}}
  exit-address-family
 </group>
+!{{ _end_ }}
 </group>
 
 <group name="routing.eigrp">

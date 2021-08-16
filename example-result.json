@@ -1159,57 +1159,33 @@
                 "rip": {
                     "redistribute": "static",
                     "version": "2",
-                    "address_family": [
-                        {
-                            "address_family": "ipv4",
-                            "vrf": "MHC",
-                            "auto_summary_disabled": true,
-                            "redistribute": [
-                                {
-                                    "redistribute": "connected"
+                    "address_family": {
+                        "ipv4": {
+                            "MHC": {
+                                "auto_summary_disabled": true,
+                                "redistribute": {
+                                    "connected": {},
+                                    "static": {}
                                 },
-                                {
-                                    "redistribute": "static"
-                                }
-                            ],
-                            "networks": [
-                                {
-                                    "network": "10.0.0.0"
+                                "networks": {
+                                    "10.0.0.0": {},
+                                    "172.20.0.0": {}
                                 },
-                                {
-                                    "network": "172.20.0.0"
-                                }
-                            ],
-                            "version": "2"
-                        },
-                        {
-                            "address_family": "ipv4",
-                            "vrf": "HERPLYFE",
-                            "auto_summary_disabled": true,
-                            "redistribute": [
-                                {
-                                    "redistribute": "connected"
+                                "version": "2"
+                            },
+                            "HERPLYFE": {
+                                "auto_summary_disabled": true,
+                                "redistribute": {
+                                    "connected": {},
+                                    "static": {}
                                 },
-                                {
-                                    "redistribute": "static"
+                                "version": "2",
+                                "networks": {
+                                    "10.0.0.0": {}
                                 }
-                            ],
-                            "version": "2",
-                            "networks": {
-                                "network": "10.0.0.0"
                             }
-                        },
-                        {
-                            "address_family": "ipv4",
-                            "vrf": "Customer_B",
-                            "auto_summary_disabled": false
-                        },
-                        {
-                            "address_family": "ipv4",
-                            "vrf": "Customer_A",
-                            "auto_summary_disabled": false
                         }
-                    ]
+                    }
                 },
                 "eigrp": {
                     "no_passive_interface": {
