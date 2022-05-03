@@ -1,5 +1,5 @@
 <group name="interfaces.{{interface}}">
-interface {{ interface }}
+interface {{ interface | _start_ }}
 {{ mode | set(None) }}
 {{ disabled | set(False) }}
 {{ ip | set(None) }}
@@ -37,9 +37,11 @@ interface {{ interface }}
  {{ symmetric | set(False) }}
  {{ input_policy | set(None) }}
  {{ output_policy | set(None) }}
- service instance {{ id | record(id) }} ethernet
+ service instance {{ id | record(id) | _start_ }} ethernet
   description {{ description }}
   <group name="encapsulation">
+  {{ second_vlan | set(None) }}
+  {{ vlan | set(None) }}
   encapsulation dot1q {{ vlan | _start_ }} second-dot1q {{ second_vlan }}
   encapsulation {{ vlan | _start_ }}
   encapsulation dot1q {{ vlan | _start_ }}
@@ -48,7 +50,16 @@ interface {{ interface }}
   service-policy input {{ input_policy }}
   service-policy output {{ output_policy }}
   bridge-domain {{ bdomain }}
+
+  <group name="xconnect">
+  {{ neighbor | set(None) }}
+  {{ vc_id | set(None) }}
+  {{ mtu | set(None) }}
+  xconnect {{ neighbor }} 666 encapsulation mpls
+   mtu {{ mtu }}
+  </group>
  </group>
+!{{ _end_ }}
 </group>
 
 <group name="global.http_server">
