@@ -55,7 +55,7 @@ interface {{ interface | _start_ }}
   {{ neighbor | set(None) }}
   {{ vc_id | set(None) }}
   {{ mtu | set(None) }}
-  xconnect {{ neighbor }} 666 encapsulation mpls
+  xconnect {{ neighbor }} {{ vc_id }} encapsulation mpls
    mtu {{ mtu }}
   </group>
  </group>
