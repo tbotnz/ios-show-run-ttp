@@ -4,3 +4,7 @@
 
 forever a WIP, ALL PR's welcome!
 feel free to log an issue - please include an example of the output
+
+### contribute
+- develop with https://textfsm.nornir.tech/
+- please add tests
