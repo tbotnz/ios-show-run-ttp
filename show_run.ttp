@@ -16,6 +16,7 @@ interface {{ interface | _start_ }}
 {{ input_mac_acl | set(None) }}
 {{ output_mac_acl | set(None) }}
 {{ input_policy | set(None) }}
+{{ output_policy | set(None) }}
  switchport mode {{ mode }}
  switchport trunk allowed vlan {{ vlan | _start_ | unrange(rangechar='-', joinchar=',' ) | split(',') }}
  switchport access vlan {{ vlan | _start_ }}
@@ -32,6 +33,7 @@ interface {{ interface | _start_ }}
  mac access-group {{ input_mac_acl }} in
  mac access-group {{ output_mac_acl }} out
  service-policy input {{ input_policy }}
+ service-policy output {{ output_policy }}
  <group name="service_instance.{{id}}">
  {{ pop | set(None) }}
  {{ symmetric | set(False) }}
